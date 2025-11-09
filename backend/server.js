@@ -258,12 +258,15 @@ app.use(express.json());
 // MySQL接続設定
 // ==========================
 // 💡 ローカルでは.envの値、Railwayでは環境変数(DB_〜)を使用
+// ==========================
+// MySQL接続設定（Railway対応版）
+// ==========================
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASSWORD || "nanaKo1221",
-  database: process.env.DB_NAME || "db_kakeibo",
-  port: process.env.DB_PORT || 3306,
+  host: process.env.MYSQLHOST || "localhost",
+  user: process.env.MYSQLUSER || "root",
+  password: process.env.MYSQLPASSWORD || "nanaKo1221",
+  database: process.env.MYSQLDATABASE || "db_kakeibo",
+  port: process.env.MYSQLPORT || 3306,
 });
 
 connection.connect((error) => {
